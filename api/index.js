@@ -16,7 +16,13 @@ const PORT = process.env.PORT || 3000;
 
 // Middleware
 
-app.use(cors());
+
+app.use(cors({
+  origin: 'https://cloud-main-p6ghvl4ty-saad-rayhans-projects.vercel.app', // your frontend URL
+  credentials: true, // only if you're using cookies/auth
+}));
+app.options('*', cors());
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
